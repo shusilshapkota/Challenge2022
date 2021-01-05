@@ -6,6 +6,7 @@ from rest_framework import status
 from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
 
+# Make it so user can't access registration page when they're logged in
 # Create your views here.
 
 # This page handles user logins and redirect to sign up if necessary
@@ -41,4 +42,11 @@ class registerPage(APIView):
             form.save()
             user = form.cleaned_data.get('username')
             messages.success(request, "Account was created for " + user)
+        return redirect('login')
+
+
+# This basically logs user out of the app
+class logoutUser(APIView):
+    def get(self, request):
+        logout(request)
         return redirect('login')
