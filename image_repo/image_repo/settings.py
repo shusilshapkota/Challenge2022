@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'image_repo_authentications',
     'rest_framework',
+    'images_upload',
 ]
 
 MIDDLEWARE = [
