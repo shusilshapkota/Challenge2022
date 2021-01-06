@@ -12,6 +12,8 @@ from django.contrib import messages
 # This page handles user logins and redirect to sign up if necessary
 class loginPage(APIView):
     def get(self, request):
+        if request.user.is_authenticated:
+            return redirect('profilePage')
         context = {}
         return render(request, 'auth/login.html', context)
 
@@ -23,7 +25,7 @@ class loginPage(APIView):
 
         if user is not None:
             login(request, user)
-            return Response("User Logged In", status=status.HTTP_200_OK)
+            return redirect('profilePage')
         else:
             messages.info(request, 'Username or Password is incorrect')
             return redirect('login')
@@ -49,4 +51,4 @@ class registerPage(APIView):
 class logoutUser(APIView):
     def get(self, request):
         logout(request)
-        return redirect('login')
+        return redirect('home')

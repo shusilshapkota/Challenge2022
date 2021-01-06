@@ -29,11 +29,19 @@
 						<label for="private">Private</label><br>
 						<input type="submit" value="Upload">
 						</form>
-
+            {% if num_of_images == 0 %}
+            <h2>You have not uploaded any images yet!<span style="font-size: medium; color:yellow; text-align: center"></<h2></h2>
+            {% endif %}
 					</header>
+
+
 
 				<!-- Main -->
 					<section id="main">
+            {% for message in messages %}
+                <p id="messages">{{message}} </p>
+            {% endfor %}
+
 
 						<!-- Thumbnails -->
 							<section class="thumbnails">
