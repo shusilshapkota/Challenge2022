@@ -1,0 +1,65 @@
+{% load static %}
+
+<!DOCTYPE HTML>
+
+<html>
+	<head>
+		<title>Profile Page</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<link rel="stylesheet" href="{% static 'assets/css/main.css' %}" />
+	</head>
+	<body>
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+				<!-- Header -->
+					<header id="header">
+						<h1>
+              Hello {{request.user}}
+              <span style="font-size: medium; margin-left:20px; color:yellow">
+              <a href="{% url 'logout' %}">Logout</a>
+            </span>
+            </h1>
+
+						<form method = "post" action="../upload_img/" enctype="multipart/form-data">
+						{% csrf_token %}
+						<input type="file" name="image" accept="image/*" required multiple>
+						<input type="checkbox" id="private" name="private" value="private">
+						<label for="private">Private</label><br>
+						<input type="submit" value="Upload">
+						</form>
+
+					</header>
+
+				<!-- Main -->
+					<section id="main">
+
+						<!-- Thumbnails -->
+							<section class="thumbnails">
+
+								{% for i in pics %}
+								<div>
+									{% for j in i %}
+									<a href="{{j.image.url}}">
+										<img src="{{j.image.url}}" alt="" />
+										<h3>{{j.uploaded_date}}</h3>
+									</a>
+									{% endfor %}
+								</div>
+								{% endfor %}
+
+							</section>
+
+					</section>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="{% static 'assets/js/jquery.min.js' %}"></script>
+			<script src="{% static 'assets/js/jquery.poptrox.min.js' %}"></script>
+			<script src="{% static 'assets/js/skel.min.js' %}"></script>
+			<script src="{% static 'assets/js/main.js' %}"></script>
+
+	</body>
+</html>
