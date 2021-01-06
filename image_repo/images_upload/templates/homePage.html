@@ -1,0 +1,85 @@
+{% load static %}
+
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Home</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<link rel="stylesheet" href="{% static 'assets/css/main.css' %}" />
+		<style>
+			/* Add a black background color to the top navigation */
+			.topnav {
+				background-color: #000;
+				background-image: {% static 'url("../../images/bg.jpg")' %};
+			}
+
+			/* Style the links inside the navigation bar */
+			.topnav a {
+				float: right;
+				color: #f2f2f2;
+				text-align: center;
+				padding: 14px 16px;
+				text-decoration: none;
+				font-size: 17px;
+			}
+
+			/* Change the color of links on hover */
+			.topnav a:hover {
+				background-color: #ddd;
+				color: black;
+			}
+
+			/* Add a color to the active/current link */
+			.topnav a.active {
+				background-color: #4CAF50;
+				color: white;
+			}
+
+		</style>
+	</head>
+	<body>
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+				<div class="topnav">
+					<a href="{% url 'register' %}">Register</a>
+					<a href="{% url 'login' %}">Login</a>
+					<a class="active" href="{% url 'home' %}">Home</a>
+				  </div>
+				<!-- Header -->
+					<header id="header">
+						<h1>Welcome to the public image repo<span style="font-size: medium; margin-left:20px; color:yellow"></<h1></h1>
+              {% if num_of_images == 0 %}
+              <h2>No public images. To upload, please log in<span style="font-size: medium; margin-left:20px; color:yellow"></<h2></h2>
+              {% endif %}
+          </header>
+
+				<!-- Main -->
+					<section id="main">
+
+						<!-- Thumbnails -->
+							<section class="thumbnails">
+
+								{% for i in pics %}
+								<div>
+									{% for j in i %}
+									<a href="{{j.image.url}}">
+										<img src="{{j.image.url}}" alt="" />
+										<h3>User: {{j.user}}, Uploaded: {{j.uploaded_date}}</h3>
+									</a>
+									{% endfor %}
+								</div>
+								{% endfor %}
+							</section>
+					</section>
+			</div>
+
+		<!-- Scripts -->
+			<script src="{% static 'assets/js/jquery.min.js' %}"></script>
+			<script src="{% static 'assets/js/jquery.poptrox.min.js' %}"></script>
+			<script src="{% static 'assets/js/skel.min.js' %}"></script>
+			<script src="{% static 'assets/js/main.js' %}"></script>
+
+	</body>
+</html>

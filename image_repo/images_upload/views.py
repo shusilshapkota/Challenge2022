@@ -58,3 +58,21 @@ class profilePage(APIView):
         context = {"pics": new_img_list}
 
         return render(request, 'profilePage.html', context)
+
+
+class homePage(APIView):
+    def get(self, request):
+        imgs = UserImages.objects.filter(private=False)
+        num_of_cols = 3
+        new_img_list = []
+
+        rows = math.ceil(imgs.count()/num_of_cols)
+        start, end = 0, rows
+
+        for i in range(num_of_cols):
+            new_img_list.append(imgs[start:end])
+            start, end = end, end+rows
+
+        context = {"pics": new_img_list, "num_of_images":imgs.count()}
+
+        return render(request, 'homePage.html', context)
