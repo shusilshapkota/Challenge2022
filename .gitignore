@@ -129,7 +129,6 @@ dmypy.json
 .pyre/
 
 # Some dirs
-extras
 media
 
 *.DS_Store
