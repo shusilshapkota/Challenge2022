@@ -8,17 +8,51 @@
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<link rel="stylesheet" href="{% static 'assets/css/main.css' %}" />
+		<style>
+			/* Add a black background color to the top navigation */
+			.topnav {
+				background-color: #000;
+				background-image: {% static 'url("../../images/bg.jpg")' %};
+			}
+
+			/* Style the links inside the navigation bar */
+			.topnav a {
+				float: right;
+				color: #f2f2f2;
+				text-align: center;
+				padding: 14px 16px;
+				text-decoration: none;
+				font-size: 17px;
+			}
+
+			/* Change the color of links on hover */
+			.topnav a:hover {
+				background-color: #ddd;
+				color: black;
+			}
+
+			/* Add a color to the active/current link */
+			.topnav a.active {
+				background-color: #4CAF50;
+				color: white;
+			}
+
+		</style>
 	</head>
 	<body>
 
 		<!-- Wrapper -->
 			<div id="wrapper">
+				<div class="topnav">
+					<a href="{% url 'logout' %}">Logout</a>
+					<a class="active" href="{% url 'profilePage' %}">{{request.user}}</a>
+					<a href="{% url 'home' %}">Home</a>
+				  </div>
 				<!-- Header -->
 					<header id="header">
 						<h1>
               Hello {{request.user}}
               <span style="font-size: medium; margin-left:20px; color:yellow">
-              <a href="{% url 'logout' %}">Logout</a>
             </span>
             </h1>
 

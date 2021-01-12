@@ -44,12 +44,18 @@
 			<div id="wrapper">
 				<div class="topnav">
 					<a href="{% url 'register' %}">Register</a>
+					{% if request.user.is_authenticated == True %}
+					<a href="{% url 'profilePage' %}">{{request.user}}</a>
+					{% else %}
 					<a href="{% url 'login' %}">Login</a>
+					{% endif %}
 					<a class="active" href="{% url 'home' %}">Home</a>
 				  </div>
 				<!-- Header -->
 					<header id="header">
 						<h1>Welcome to the public image repo<span style="font-size: medium; margin-left:20px; color:yellow"></<h1></h1>
+							<h2></h2>
+							<h2>Here, you'll see all the images users marked public<span style="font-size: medium; margin-left:20px; color:yellow"></<h2></h2>
               {% if num_of_images == 0 %}
               <h2>No public images. To upload, please log in<span style="font-size: medium; margin-left:20px; color:yellow"></<h2></h2>
               {% endif %}
