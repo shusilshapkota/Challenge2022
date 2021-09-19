@@ -1,6 +1,6 @@
-# Shopify Summer 2021 Challenge
+# Shopify Winter 2022 Challenge
 
-This app is created as a solution to the Shopify's Developer Intern Challenge for the year of 2021. The app is hosted using [pythonanywhere.com](https://www.pythonanywhere.com/) and can be accessed using [shusilshapkota.pythonanywhere.com](http://shusilshapkota.pythonanywhere.com/)
+This app is created as a solution to the Shopify's Developer Intern Challenge for the year of 2022. The app is hosted using [pythonanywhere.com](https://www.pythonanywhere.com/) and can be accessed using [shusil.pythonanywhere.com](http://shusil.pythonanywhere.com/)
 
 ## Image-Repo
 
@@ -21,15 +21,15 @@ There are two ways to test and access the application:
 
 ### Accessing the app via website:
 
-1. Please go to [shusilshapkota.pythonanywhere.com](http://shusilshapkota.pythonanywhere.com/). Images you see in this page are all public images uploaded by the users.
+1. Please go to [shusil.pythonanywhere.com](http://shusil.pythonanywhere.com/). Images you see in this page are all public images uploaded by the users.
 2. Click Register on the top right bar. You can register using any emails, emails verification is turned off to make it easier to test out the core functionality.
 3. Once you register, it will take you to the login page where you can sign in.
 4. Once signed in, you will see all of your private pictures if you have uploaded previously. You'll also see an upload option if you want to upload the images.
 5. If you want to logout, you can simply click on the logout button on the top right bar which will take you to the public pics page.
 
 ### Cloning the repo and running it locally:
-1. Clone the repo using: `git clone https://github.com/shusilshapkota/Challenge2021.git`
-2. cd into the Challenge2021 directory: `cd Challenge2021` and then cd into image_repo directory `cd image_repo`
+1. Clone the repo using: `git clone https://github.com/shusilshapkota/Challenge2022.git`
+2. cd into the Challenge2022 directory: `cd Challenge2022` and then cd into image_repo directory `cd image_repo`
 3. Then, install all the required packages to run this app locally: `pip3 install -r requirements.txt`
 4. Now, run database migrations: `python3 manage.py migrate`
 5. Run the server: `python3 manage.py runserver`
